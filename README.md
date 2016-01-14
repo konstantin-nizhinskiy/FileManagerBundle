@@ -2,7 +2,10 @@ FileManagerBundle
 =================
 [File manager](https://github.com/konstantin-nizhinskiy/FileManager) symfony bundle
 
-* [setup](./#setup)
+* [setup](#setup)
+* [Config bundle](#config-bundle)
+* [Todo](#todo)
+    
 ## Setup
 
 #### composer
