@@ -1,0 +1,108 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <style>
+        #FileManagerLayoutView{
+            width: 90%;
+            margin: 0 auto;
+
+        }
+        .view-demo{
+            border: 2px dashed #a6a6a6;
+            padding: 5px;
+        }
+    </style>
+
+    <div>
+        <h1>DEMO FileManager</h1>
+        <h3>getFileManager</h3>
+
+        <div class="view-demo"><div id="FileManagerLayoutView"></div><div style="clear: both"></div></div>
+
+    </div>
+    <div>
+        <h3>openFileManager</h3>
+
+        <div class="view-demo">
+            <button id="openFileManager">Open file manager</button><span id="modal-link"></span>
+            <div id="FileManagerLayoutModalView"></div><div style="clear: both"></div></div>
+
+    </div>
+    <div>
+        <h3>tinymce</h3>
+
+        <div class="view-demo">
+            <textarea>Easy (and free!) You should check out our premium features.</textarea>
+
+    </div>
+
+{% endblock %}
+{% block javascripts  %}
+        <script src="/js/require.js"  type="text/javascript"></script>
+    <script>
+
+
+
+
+
+        require.config({
+                    baseUrl:"/js/",
+                    shim: {
+                        'underscoreBase': {
+                            exports: '_'
+                        },
+                        bootstrap: {
+                            deps: ['jquery']
+                        },
+                        tinyMCE: {
+                            exports: 'tinyMCE',
+                            init: function () {
+                                this.tinyMCE.DOM.events.domLoaded = true;
+                                return this.tinyMCE;
+                            }
+                        }
+                    },
+                    paths:{
+                        FileManager:'FileManager.min',
+                        TinyMCEPlugins:'TinyMCEPlugins.min',
+                        tinyMCE:'/tinymce/tinymce.min',
+                        cssLoad: "cssLoad",
+                        jquery: 'jquery-1.11.2.min',
+                        underscoreBase: 'underscore.min',
+                        underscore: 'underscoreConfig',
+                        backbone: 'backbone.min',
+                        marionette: 'backbone.marionette.min'
+
+
+
+        }
+                });
+
+        require(['jquery','FileManager',
+                    'TinyMCEPlugins',
+                    'cssLoad!/css/FileManager.min.css'
+                ],
+                function($,fileManager) {
+                    fileManager.init({
+                       'host':''
+                    });
+                    var fileManagerLayoutView = fileManager.getFileManager();
+                    $('#FileManagerLayoutView').html(fileManagerLayoutView.render().el);
+
+                    $('#openFileManager').click(function(){
+                        fileManager.openFileManager();
+
+                    });
+                    fileManager.on('selectFile',function(args){$('#modal-link').html(args.link)});
+                    tinymce.init({
+                        selector:'textarea',
+                        plugins: 'nks-file-manager',
+                        toolbar: 'nks-file-manager'
+
+                    });
+                });
+
+
+    </script>
+
+{% endblock %}

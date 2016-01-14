@@ -1,0 +1,18 @@
+{
+  "name": "nks/file-manage-bundle",
+  "license": "MIT",
+  "type": "symfony-bundle",
+  "keywords": ["file","manager","symfony","tinymce"],
+  "description": "Symfony file manager bundle",
+  "authors": [
+    {
+      "name":"Konstantin Nizhinskiy",
+      "email": "konstantin.nizhinskiy@gmail.com"
+    }
+  ],
+  "require": {
+        "php": ">=5.5.9",
+        "symfony/symfony": "3.0.*"
+    }
+
+}

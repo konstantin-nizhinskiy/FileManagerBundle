@@ -1,0 +1,10 @@
+/bin/
+/vendor/
+/var/
+.idea
+app
+web
+tests
+phpunit.xml
+phpunit.xml.dist
+composer.lock

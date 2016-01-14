@@ -1,0 +1,3 @@
+FileManager:
+    resource: "@FileManagerBundle/Controller/api"
+    type:     annotation

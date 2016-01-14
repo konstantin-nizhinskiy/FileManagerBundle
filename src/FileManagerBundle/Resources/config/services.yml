@@ -1,0 +1,9 @@
+#services:
+#    front_jur.localeL:
+#        class: KernelWCBundle\Listener\LocaleListener
+#        arguments: [ru,"@doctrine","%version%"] #[%locale%]
+#        tags:
+#          - {name: kernel.event_subscriber }
+#          - { name: kernel.event_listener, event: kernel.response, method: onKernelResponse }
+#          - { name: kernel.event_listener, event: kernel.exception, method: onKernelException }
+#
