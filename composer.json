@@ -4,6 +4,12 @@
   "type": "symfony-bundle",
   "keywords": ["file","manager","symfony","tinymce"],
   "description": "Symfony file manager bundle",
+  "autoload": {
+    "psr-4": {
+      "": "src/"
+    }
+
+  },
   "authors": [
     {
       "name":"Konstantin Nizhinskiy",
